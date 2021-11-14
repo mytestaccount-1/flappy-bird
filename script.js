@@ -1,7 +1,12 @@
 import { updateBird,setupBird,getBirdRect } from './bird.js';
 import { updatePipes,setupPipes,getPassedPipesCount,getPipesRects } from './pipe.js';
 
-document.addEventListener('keypress',handleStart,{once:true})
+if(screen.width>=800){
+    document.addEventListener('keypress',handleStart,{once:true})
+}
+else{
+    document.addEventListener('touchdown',handleStart,{once:true})
+}
 const title = document.querySelector("[data-title]")
 const subtitle = document.querySelector("[data-subtitle]")
 
@@ -49,6 +54,11 @@ function handleLose() {
         title.classList.remove("hide")
         subtitle.classList.remove("hide")
         subtitle.textContent=`Passed ${getPassedPipesCount()} Pipes`
-        document.addEventListener('keypress',handleStart,{once:true})
+        if(screen.width>=800){
+            document.addEventListener('keypress',handleStart,{once:true})
+        }
+        else{
+            document.addEventListener('touchdown',handleStart,{once:true})
+        }
     },100)
 }

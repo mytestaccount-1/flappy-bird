@@ -5,8 +5,14 @@ let timeSinceLastJump=Number.POSITIVE_INFINITY
 
 export function setupBird() {
     setTop(window.innerHeight/2)    
-    document.removeEventListener('keydown',handleJump)
-    document.addEventListener('keydown',handleJump)
+    if(screen.width>=800){
+        document.removeEventListener('keydown',handleJump)
+        document.addEventListener('keydown',handleJump)
+    }
+    else{
+        document.removeEventListener('touchdown',handleJumpTs)
+        document.addEventListener('touchdown',handleJumpTs)
+    }
 }
 
 export function updateBird(delta) {
@@ -36,3 +42,7 @@ function handleJump(e) {
     if(e.code!=='Space') return 
     timeSinceLastJump=0    
 }
+function handleJumpTs(e) {
+    timeSinceLastJump=0    
+}
+
