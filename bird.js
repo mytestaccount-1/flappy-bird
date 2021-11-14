@@ -10,8 +10,8 @@ export function setupBird() {
         document.addEventListener('keydown',handleJump)
     }
     else{
-        document.removeEventListener('touchdown',handleJumpTs)
-        document.addEventListener('touchdown',handleJumpTs)
+        document.removeEventListener('touchend',handleJumpTs)
+        document.addEventListener('touchend',handleJumpTs)
     }
 }
 

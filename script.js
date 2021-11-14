@@ -5,7 +5,7 @@ if(screen.width>=800){
     document.addEventListener('keypress',handleStart,{once:true})
 }
 else{
-    document.addEventListener('touchdown',handleStart,{once:true})
+    document.addEventListener('touchend',handleStart,{once:true})
 }
 const title = document.querySelector("[data-title]")
 const subtitle = document.querySelector("[data-subtitle]")
@@ -58,7 +58,7 @@ function handleLose() {
             document.addEventListener('keypress',handleStart,{once:true})
         }
         else{
-            document.addEventListener('touchdown',handleStart,{once:true})
+            document.addEventListener('touchend',handleStart,{once:true})
         }
     },100)
 }
